@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Panahon PH — Live weather forecast for cities and towns across the Philippines."
+    />
+    <meta name="theme-color" content="#E6EEF0" />
+    <title>Panahon PH — Weather Forecast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="theme-clear-day">
+    <div class="app">
+      <header class="top">
+        <div class="brand">
+          <h1>Panahon PH</h1>
+          <p>Weather for cities and towns across the Philippines</p>
+        </div>
+        <div class="tools">
+          <div class="seg" role="group" aria-label="Temperature unit">
+            <button type="button" id="uC" aria-pressed="true">°C</button>
+            <button type="button" id="uF" aria-pressed="false">°F</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="search" role="search">
+        <div class="field">
+          <label class="sr" for="q">Search a Philippine city or town</label>
+          <input
+            id="q"
+            type="search"
+            placeholder="Search a city or town, e.g. Tagaytay"
+            autocomplete="off"
+            role="combobox"
+            aria-controls="res"
+            aria-expanded="false"
+            aria-autocomplete="list"
+          />
+          <ul class="results" id="res" role="listbox" hidden></ul>
+        </div>
+        <button type="button" class="btn primary" id="geo">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path
+              d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+              fill="currentColor"
+            />
+          </svg>
+          Use my location
+        </button>
+      </div>
+
+      <nav class="chips" id="chips" aria-label="Popular places"></nav>
+
+      <div id="notice" class="notice" hidden></div>
+      <div id="status" class="sr" role="status" aria-live="polite"></div>
+
+      <main id="app" class="content"></main>
+
+      <footer class="foot">
+        <span
+          >Forecast data from Open-Meteo. Times are Philippine Time
+          (UTC+8).</span
+        >
+        <span
+          >For typhoon signals and official warnings, check
+          <a
+            href="https://www.pagasa.dost.gov.ph/"
+            target="_blank"
+            rel="noopener"
+            >PAGASA</a
+          >.</span
+        >
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
